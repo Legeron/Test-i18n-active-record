@@ -1,0 +1,52 @@
+<div style='margin: 60px'>
+<div class="row">
+  <div class="flex-column">
+<!--     <h1>Translations for <%= @locale %></h1> -->
+
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Translation Key</th>
+        <th>Setting</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @translations.where(locale: 'fr').each do |translation| %>
+          <tr id="<%= translation.key %>">
+            <td><%= translation.key %></td>
+            <td><%= translation.locale %></td>
+            <td><%= translation.value %></td>
+            <td>
+              <%= link_to "Edit", edit_translation_url(translation) %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Translation Key</th>
+        <th>Setting</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @translations.where(locale: 'en').each do |translation| %>
+          <tr id="<%= translation.key %>">
+            <td><%= translation.key %></td>
+            <td><%= translation.locale %></td>
+            <td><%= translation.value %></td>
+            <td>
+              <%= link_to "Edit", edit_translation_url(translation) %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+<%= link_to 'home', root_path %>
+</div>

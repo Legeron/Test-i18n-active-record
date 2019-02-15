@@ -1,0 +1,3 @@
+<%  @articles.each do |article| %>
+  <p><%= article.author %> <%= link_to t(article.title), article_path(article) %></p>
+<% end %>
